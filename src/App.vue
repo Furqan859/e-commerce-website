@@ -1,32 +1,31 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+<v-app>
+    <v-main v-if="$route.name === 'login'">
+        <Login />
+    </v-main>
+    <v-main v-else>
+        <Header />
+        <router-view/>
+        <Footer />
+    </v-main>
+</v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Login from './views/LoginView.vue'
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
 
-nav {
-  padding: 30px;
-}
+export default {
+    name: 'App',
+    components: {
+        Login,
+        Header,
+        Footer,
+    },
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    data: () => ({
+        //
+    }),
+};
+</script>

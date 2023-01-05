@@ -1,18 +1,52 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<v-row>
+    <v-main>
+        <v-app app>
+            <v-container fluid>
+                <!-- <div v-for="item in items" :key="item.id" >
+                        {{item.brand}}
+                    </div> -->
+                <v-layout row>
+                   <InputFilterData/>
+
+                    <card-data v-for="product in products" :key="product.id" :product="product" />
+                </v-layout>
+
+                <div class="text-center mb-5">
+                    <v-pagination v-model="page" :length="4" circle></v-pagination>
+                </div>
+            </v-container>
+        </v-app>
+    </v-main>
+
+</v-row>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CardData from './CardData.vue'
+import InputFilterData from '../components/InputFilterData.vue'
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+    name: 'HomeView',
+    data: () => ({
+    }),
+    components: {
+        CardData,
+        InputFilterData
+    },
+
+    computed: {
+        products() {
+            return this.$store.state.products;
+
+        }
+    },
+    mounted() {
+        this.$store.dispatch('getProducts');
+
+    },
+    beforeUpdate() {
+        this.items = this.$store.state.products;
+    }
 }
 </script>

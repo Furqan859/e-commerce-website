@@ -1,5 +1,5 @@
 <template>
-  <div>About Page</div>
+  <div>ContactView</div>
 </template>
 
 <script>
