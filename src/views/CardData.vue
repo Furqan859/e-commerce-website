@@ -10,14 +10,14 @@
             <v-card height="200px" class="d-flex justify-center align-center">
 
                 <router-link :to="{ path: 'detailPage', query: { productId: product.id }}">
-                    <v-img  cover height="200" :src="image" :productId="product.id"></v-img>
+                    <v-img  cover height="200" :src="image" :productId="product.id" @click="DetailPageId(product.id)" ></v-img>
                 </router-link>
             </v-card>
 
         </v-window-item>
     </v-window>
 
-    <v-card-item app>
+   
         <v-card-title>
             <v-row align="center" class="mx-0">
                 <v-row>{{ product.title }}</v-row>
@@ -43,7 +43,7 @@
 
             <div>{{ product.description }}</div>
         </v-card-text>
-    </v-card-item>
+   
 
     <v-card-actions>
         
@@ -74,12 +74,16 @@ export default {
             setTimeout(() => (this.loading = false), 2000)
             console.log(id)
             this.$store.state.id = id;
-            this.$store.dispatch({type: 'ProductDescription' })
+            this.$store.dispatch('ProductDescription',id)
 
         },
-        DetailPage(id) {
-            console.log(id,"this is detail page")
+        DetailPageId(id) {
+           this.$store.dispatch('DetailPageGet',id)
+           console.log(id,"this is detail page id")
         }
-    }
+    },
+    computed:{
+   
+}
 }
 </script>

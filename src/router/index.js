@@ -16,7 +16,7 @@ console.log(userAuth,"userAuth")
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'homeView',
     component: HomeView,
     meta:{
       needsAuth:true
@@ -50,7 +50,7 @@ const routes = [
     component: CartPage
   },
   {
-    path: '/detailPage/:id',
+    path: '/detailPage',
     name: 'detailPage',
     component: DetailPage
   }

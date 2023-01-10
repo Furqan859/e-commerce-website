@@ -1,72 +1,98 @@
-<template>
-<v-card :loading="loading" class="mx-auto my-12" max-width="374">
-    <template slot="progress">
-        <v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
-    </template>
 
-    <v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+    
+<template id="app" class="d-flex justify-center">
+    <v-app>
+      <v-main>
+        <v-container fluid>
+          <v-card max-width="450px" class="mx-auto bg" elevation="2">
+            <v-img class="" height="200px" src="http://unblast.com/wp-content/uploads/2021/09/Real-Estate-Agent-Illustration.jpg" gradient="150deg, rgb(185 224 255 / 58%) 0%, rgb(243 220 246 / 52%) 35%, rgb(223 255 242 / 74%) 74%">
+            </v-img>
+            <v-row justify="center">
+              <v-col align-self="start" class="d-flex justify-center align-center pa-0" cols="12">
+                <v-avatar class="profile avatar-center-height avatar-shadow"  size="100">
+                  <v-img :src="this.image"></v-img>
+                </v-avatar>
+              
+              </v-col>
+              <v-col>
+               <div>
+                 <p class="text-h6 text-center text--disabled">
+                      {{ this.userName }} 
+                    </p>
+               </div>
+              </v-col>
+            </v-row>
+                <v-list-item color="#0000" class="profile-text-name">
+                  <v-list-item-content>
+                    <v-list-item-title class="text-h6">
+                      {{ this.firstName }} {{ this.lastName }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>{{ this.gender }}</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+ 
+                <v-card-subtitle>
+                  <b class="ml-2">{{ this.email }}</b>
+                </v-card-subtitle>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+                <p v-if="!editBio" class="pl-6 pr-6 pt-0">
+                  {{ Bio }}
+                </p>
+                <v-textarea v-model="Bio" rows="" v-if="editBio" label="Editar minha Bio" class="pa-6"></v-textarea>
+                <v-spacer></v-spacer>
+                <v-text-field class="pa-6" v-model=this.email prepend-icon="mdi-whatsapp" label="Phone" :disabled="!editBio"></v-text-field>
+                <v-spacer></v-spacer>
+           
+          </v-card>
+        </v-container>
+      </v-main>
+    </v-app>
 
-    <v-card-text>
-        <v-row align="center" class="mx-0">
-            <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
+  </template>
 
-            <div class="grey--text ms-4">
-                4.5 (413)
-            </div>
-        </v-row>
-
-        <div class="my-4 text-subtitle-1">
-            $ • Italian, Cafe
-        </div>
-
-        <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
-    <v-card-text>
-        <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
-            <v-chip>5:30PM</v-chip>
-
-            <v-chip>7:30PM</v-chip>
-
-            <v-chip>8:00PM</v-chip>
-
-            <v-chip>9:00PM</v-chip>
-        </v-chip-group>
-    </v-card-text>
-
-    <v-card-actions>
-        <v-btn color="deep-purple lighten-2" text @click="reserve">
-            Reserve
-        </v-btn>
-    </v-card-actions>
-</v-card>
-</template>
-
-<script>
+  <script>
 export default {
-  data:()=>{
-    return{
-     image:'',
-     userName:'',
-     firstName:'',
-     data:'',
+    name: 'userProfileView',
+    data: () => ({
+      userName:'',
+      email:'',
+      firstName:'',
+      lastName:'',
+      gender:'',
+      image:''
 
+    }),
+    methods: {
+        userInfo() {
+            const data = JSON.parse(localStorage.getItem("userLogin"));
+            console.log(data.username, "data name")
+            this.userName = data.username;
+            this.image = data.image;
+            this.email = data.email;
+            this.firstName = data.firstName;
+            this.lastName = data.lastName;
+            this.gender = data.gender;
+        },
+
+    },
+    created() {
+        this.userInfo();
     }
-  },
-  mounted:{
-    
-    
-  }
-
-}
+};
 </script>
 
-<style>
 
+<style>
+.avatar-center-heigth {
+  position: absolute;
+}
+
+.profile-text-name {
+  margin-top: 70px;
+}
+
+.sutitles {
+  margin: 5px;
+  padding: 16px;
+}
 </style>

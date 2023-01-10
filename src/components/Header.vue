@@ -12,7 +12,7 @@
     <router-link style="text-decoration: none; color: inherit; margin-left: 2rem; margin-right: 1rem;" to="/"><v-btn color="secondary " depressed elevation="24" outlined rounded>Home</v-btn></router-link>
     <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/about"> <v-btn color="secondary" depressed elevation="24" outlined rounded>About</v-btn></router-link>
     <router-link style="text-decoration: none; color: inherit; margin-right: 2rem;" to="/contact">  <v-btn color="secondary" depressed elevation="24" outlined rounded>Contact</v-btn></router-link>
-    <v-text-field color="black"></v-text-field>
+   <Search/>
     <v-spacer></v-spacer>
     <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
         <v-btn href="" target="_blank" text>
@@ -29,7 +29,7 @@
             <v-icon>
                 mdi-cart
             </v-icon>
-            <v-badge :content=1></v-badge>
+            <v-badge :content=this.$store.state.product.length></v-badge>
         </v-btn>
     </router-link>
 
@@ -43,8 +43,12 @@
 
     
 <script>
+import Search from './Search.vue'
 export default {
     name: 'Header',
+    components:{
+Search
+    },
 
     data() {
         return {
