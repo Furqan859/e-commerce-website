@@ -36,12 +36,6 @@ export default new Vuex.Store({
   // mutations is used to update the state
   mutations: {
 
-
-    SET_USER(state, userLoggedIn) {
-      state.AuthLogin = userLoggedIn;
-    }
-    ,
-
     removeCartData(state, id) {
       state.product.splice(id, 1)
       console.log(this.state.product.splice(id, 1), "console remove data")
