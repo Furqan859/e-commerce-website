@@ -8,10 +8,10 @@
                     <SearchCard v-for="filterData in searchData" :key="filterData.id" :filterData="filterData" />
                 </v-layout>
                 <v-layout v-else row>
-                    <CardData v-for="product in products" :key="product.id" :product="product" />
+                    <CardData v-for="product in updatePage" :key="product.id" :product="product" />
                 </v-layout>
                 <div class="text-center mb-5">
-                    <Pagination />
+                    <v-pagination  v-model="page"  :length="4"  circle></v-pagination>
                 </div>
             </v-container>
         </v-app>
@@ -23,7 +23,6 @@
 import CardData from './CardData.vue'
 import SearchCard from '../components/SearchCard.vue' //search component card
 import InputFilterData from '../components/InputFilterData.vue'
-import Pagination from '../components/Pagination.vue'
 
 import {
     mapState
@@ -32,20 +31,28 @@ import {
 export default {
     name: 'HomeView',
     data: () => ({
-        dialog: false
+        dialog: false,
+        page:1,
+              perPage:25
     }),
     components: {
         CardData,
         InputFilterData,
-        Pagination,
         SearchCard
     },
-    methods: {},
     computed: {
         // get search filter from state and pass to component
         ...mapState(['searchData']),
         // get product data from state and pass to component
         ...mapState(['products']),
+
+        updatePage() {
+             const  start = (this.page - 1) * this.perPage;
+             const  end = start + this.perPage;
+             return this.products.slice(start, end);
+             
+             
+          }
 
     },
     // call actions to get product data and passing value from component
