@@ -7,7 +7,7 @@
                 <InputFilterData />
 
                 <v-layout row v-if="searchData!=0">
-                    <FilterData v-for="filterData in searchData" :key="filterData.id" :filterData="filterData" />
+                    <SearchComponent v-for="filterData in searchData" :key="filterData.id" :filterData="filterData" />
                 </v-layout>
                 <v-layout v-else row>
                     <CardData v-for="product in products" :key="product.id" :product="product" />
@@ -25,7 +25,7 @@
 
 <script>
 import CardData from './CardData.vue'
-import FilterData from './FilterData.vue'
+import SearchComponent from './SearchComponent.vue'
 import InputFilterData from '../components/InputFilterData.vue'
 import Pagination from '../components/Pagination.vue'
 import {
@@ -41,7 +41,7 @@ export default {
         CardData,
         InputFilterData,
         Pagination,
-        FilterData
+        SearchComponent
     },
     methods: {},
     computed: {

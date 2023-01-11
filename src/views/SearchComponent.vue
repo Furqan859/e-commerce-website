@@ -10,7 +10,7 @@
                 <v-card height="200px" class="d-flex justify-center align-center">
     
                     <router-link :to="{ path: 'detailPage', query: { filterDataId: filterData.id }}">
-                        <v-img  cover height="200" :src="image" :productId="filterData.id"></v-img>
+                        <v-img  cover height="200" :src="image" :productId="filterData.id" @click="DetailPage(filterData.id)"></v-img>
                     </router-link>
                 </v-card>
     
@@ -43,22 +43,13 @@
     
                 <div>{{ filterData.description }}</div>
             </v-card-text>
-       
-    
-        <v-card-actions>
-            
-                <v-btn @click="AddToCart(filterData.id)" color="deep-purple-lighten-2 " variant="text">
-                    Add To Cart
-                </v-btn>
-            
-        </v-card-actions>
     </v-card>
     </template>
     
         
     <script>
     export default {
-        name: 'FilterData',
+        name: 'SearchComponent',
         props: ["filterData"],
         data: () => ({
             loading: false,
@@ -69,14 +60,8 @@
         }),
     
         methods: {
-            AddToCart(id) {
-                this.loading = true
-                setTimeout(() => (this.loading = false), 2000)
-                // console.log(id)
-                // this.$store.state.id = id;
-                this.$store.dispatch({type: 'ProductDescription',id })
-            },
             DetailPage(id) {
+                this.$store.dispatch('DetailPageGet',id)
                 console.log(id,"this is detail page")
             },
             

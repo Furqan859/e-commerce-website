@@ -3,7 +3,7 @@
     <h2 class="display-2 mb-4">Basket</h2>
 
     <v-list two-line class="mb-5">
-        <template  v-if="product.length!=0" >
+        <template v-if="product.length!=0 ">
             <v-card v-for="(prod,index) in product" :key="prod.id" avatar>
                 <v-card :loading="loading" class="mx-auto my-12" max-width="374">
                     <template v-slot:loader="{ isActive }">
@@ -37,9 +37,9 @@
                         <v-row align="center" class="my-2 mx-4">
                             <v-row> ${{ prod.price }}</v-row>
                             <div>
-                                <v-btn x-small class="my-2 mx-2" @click="getProducts(prod.id)">+</v-btn>
-                                {{ count }}
-                                <v-btn x-small class="my-2 mx-2" @click="removeProduct(prod.id)">-</v-btn>
+                                <v-btn x-small class="my-2 mx-2" @click="addQuantity">+</v-btn>
+                                {{ productQuantity }}
+                                <v-btn x-small class="my-2 mx-2" @click="removeQuantity">-</v-btn>
                             </div>
                         </v-row>
 
@@ -48,28 +48,35 @@
 
                     <v-card-actions>
 
-                        <v-btn color="deep-purple-lighten-2 mx-4 " variant="text" @click="removeCartDataId(index)">
-                            Remove From Cart
-                        </v-btn>
+                        <v-row>
+                            <v-btn color="deep-purple-lighten-2 mx-4 " variant="text" @click="removeCartDataId(index)">
+                                Remove From Cart
+                            </v-btn>
+                        </v-row>
+                        <div>Total Price:${{productQuantity * prod.price  }}</div>
 
                     </v-card-actions>
                 </v-card>
 
-               
             </v-card>
 
         </template>
-        <template v-else> 
-           <v-card class="text-center"> No Product Added</v-card>
+        <template v-else>
+            <v-card class="text-center"> No Product Added</v-card>
         </template>
     </v-list>
 
     <v-container fluid>
         <v-row align="center" class="mx-0">
             <v-row>
-                <v-btn larger>Go to payment</v-btn>
+                <router-link style="text-decoration: none; color: inherit;" to="/basketCheckout">
+                    <v-btn larger>Go to payment</v-btn>
+                </router-link>
             </v-row>
-            <div>Total Price :  </div>
+            <div>
+                <div>Delivery Charges:250/=</div>
+                <div>Grand Total : {{ }} </div>
+            </div>
         </v-row>
     </v-container>
 </v-container>
@@ -77,54 +84,52 @@
 
 <script>
 import {
-//   mapActions,
-    mapGetters
+    //   mapActions,
+    mapState
 } from 'vuex'
 
 export default {
     data: () => ({
-        count: 1,
-        loading: false,
-        selection: 1,
-        length: 3,
-        window: 0,
 
-    }),
+            loading: false,
+            selection: 1,
+            length: 3,
+            window: 0,
+            totalPrice: 0,
+            productQuantity: 1
 
-    
-    methods: {
+        })
 
-        // ...mapActions([
-        //     'removeCartData'
-        // ])
-
-        // ,
-        removeCartDataId(id){
-            this.$store.commit('removeCartData',id)
-            console.log(id,"this is remove id")
-            // this.removeCartData(index)
-        }
         ,
+    methods: {
+        removeCartDataId(id) {
+            this.$store.commit('removeCartData', id)
+            console.log(id, "this is remove id")
+            // this.removeCartData(index)
+        },
 
-        getProducts(id) {
-            this.count++
+        addQuantity(id) {
+            this.productQuantity++
             console.log(id)
         },
-        removeProduct(id) {
-            if (this.count > 1) {
-                this.count = this.count - 1
+        removeQuantity(id) {
+            if (this.productQuantity > 1) {
+                this.productQuantity = this.productQuantity - 1
             } else {
-                this.count = 1
+                this.productQuantity = 1
             }
             console.log(id)
         },
 
     },
     computed: {
-        ...mapGetters([
-            'product'
-        ])
+        ...mapState([
+            'product',
+            'productQuantity'
+        ]),
+
     }
+
 }
 </script>
 

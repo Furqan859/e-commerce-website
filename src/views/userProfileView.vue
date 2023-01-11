@@ -34,13 +34,8 @@
                 <v-card-subtitle>
                   <b class="ml-2">{{ this.email }}</b>
                 </v-card-subtitle>
-
-                <p v-if="!editBio" class="pl-6 pr-6 pt-0">
-                  {{ Bio }}
-                </p>
-                <v-textarea v-model="Bio" rows="" v-if="editBio" label="Editar minha Bio" class="pa-6"></v-textarea>
                 <v-spacer></v-spacer>
-                <v-text-field class="pa-6" v-model=this.email prepend-icon="mdi-whatsapp" label="Phone" :disabled="!editBio"></v-text-field>
+                <v-text-field class="pa-6" v-model=this.email prepend-icon="mdi-whatsapp" label="Phone" ></v-text-field>
                 <v-spacer></v-spacer>
            
           </v-card>

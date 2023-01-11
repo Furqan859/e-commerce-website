@@ -10,7 +10,7 @@
                           </v-toolbar>
                           <v-card-text>
                               <v-form>
-                                  <v-text-field v-model="user.userName" append-icon="mdi-account" name="login" label="Login" type="text"></v-text-field>
+                                  <v-text-field aria-autocomplete  v-model="user.userName" append-icon="mdi-account" name="login" label="Login" type="text"></v-text-field>
                                   <v-text-field v-model="user.password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 6 characters" counter @click:append="show1 = !show1"></v-text-field>
                               </v-form>
                           </v-card-text>

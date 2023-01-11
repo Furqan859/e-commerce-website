@@ -1,5 +1,5 @@
 <template>
-<v-card :loading="loading" class="mx-auto my-12" max-width="374">
+<v-card :loading="loading" class="mx-auto my-12" max-width="374" >
     <template v-slot:loader="{ isActive }">
         <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
     </template>
@@ -20,7 +20,7 @@
    
         <v-card-title>
             <v-row align="center" class="mx-0">
-                <v-row>{{ product.title }}</v-row>
+                <v-row >{{ product.title }}</v-row>
                 <v-rating :v-model="product.rating" half-increments readonly size="large">
                 </v-rating>
                 <div class="text-grey ms-4">
@@ -45,18 +45,12 @@
         </v-card-text>
    
 
-    <v-card-actions>
-        
-            <v-btn @click="AddToCart(product.id)" color="deep-purple-lighten-2 " variant="text">
-                Add To Cart
-            </v-btn>
-        
-    </v-card-actions>
 </v-card>
 </template>
 
     
 <script>
+
 export default {
     name: 'CardData',
     props: ["product"],
@@ -69,21 +63,13 @@ export default {
     }),
 
     methods: {
-        AddToCart(id) {
-            this.loading = true
-            setTimeout(() => (this.loading = false), 2000)
-            console.log(id)
-            this.$store.state.id = id;
-            this.$store.dispatch('ProductDescription',id)
-
-        },
+      
         DetailPageId(id) {
            this.$store.dispatch('DetailPageGet',id)
            console.log(id,"this is detail page id")
-        }
+        },
+        
     },
-    computed:{
-   
-}
+
 }
 </script>

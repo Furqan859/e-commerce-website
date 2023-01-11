@@ -2,14 +2,17 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import store from '../store/index.js'
 import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
 import userProfileView from '../views/userProfileView.vue'
 import CartPage from '../views/CartPage.vue'
 import DetailPage from '@/views/DetailPage.vue'
+import BasketCheckout from '../components/BasketCheckout.vue'
+import store from '../store/index.js'
 
 Vue.use(VueRouter)
+
+
 
 const userAuth = store.state.AuthLogin;
 console.log(userAuth,"userAuth")
@@ -53,6 +56,11 @@ const routes = [
     path: '/detailPage',
     name: 'detailPage',
     component: DetailPage
+  },
+  {
+    path: '/basketCheckout',
+    name: 'BasketCheckout',
+    component: BasketCheckout
   }
 ]
 
