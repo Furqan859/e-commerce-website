@@ -146,8 +146,8 @@ export default new Vuex.Store({
 
     // get product detail page from api
     async DetailPageGet({ commit }, id) {
-      const fetchProduct = await fetch(`https://dummyjson.com/products/${id}`)
-      const GetDetailPage = await fetchProduct.json()
+      const getProductDetail = await fetch(`https://dummyjson.com/products/${id}`)
+      const GetDetailPage = await getProductDetail.json()
       commit('SET_PRODUCT_Detail', GetDetailPage)
 
     },
