@@ -60,6 +60,7 @@
         }),
     
         methods: {
+            // dispatching the action to get the detail page
             DetailPage(id) {
                 this.$store.dispatch('DetailPageGet',id)
                 console.log(id,"this is detail page")

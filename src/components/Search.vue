@@ -14,12 +14,10 @@ export default {
     },
 
     methods: {
+        // dispatching the action to get the search result
         dbSearch() {
             this.$store.dispatch('searchProduct', this.search)
         }
-    },
-    created() {
-        this.dbSearch();
     }
 
 }

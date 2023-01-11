@@ -10,7 +10,7 @@
         </v-card-text>
 
         <v-card-text class="white--text pt-0">
-This is the E-commerce Store Where You can Buy Product and search product and filter it. User Page and also contact and about us page In this Application i will use vue and vue-x store and i will use vue-x store        </v-card-text>
+            This is the E-commerce Store Where You can Buy Product and search product and filter it. User Page and also contact and about us page In this Application i will use vue and vue-x store and i will use vue-x store </v-card-text>
 
         <v-divider></v-divider>
 

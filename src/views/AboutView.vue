@@ -2,8 +2,8 @@
 <v-app>
 
     <v-main>
-        <v-container flid>
-          <v-img height="350px" src="../assets/about1.webp">
+        <v-container fluid>
+            <v-img height="350px" src="../assets/about1.webp">
             </v-img>
             <v-img height="350px" src="../assets/about2.webp">
             </v-img>
@@ -25,18 +25,8 @@
 </template>
 
 <script>
-
 export default {
- name:'AboutView',
-data:() =>({
- 
-})
-  ,
-  components:{
-    
-  }
- 
-
+    name: 'AboutView',
 
 }
 </script>

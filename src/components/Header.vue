@@ -1,18 +1,23 @@
 <template>
-    
 <v-app-bar app>
     <v-row justify="space-around">
         <router-link style="text-decoration: none; color: inherit;" to="/">
-                <v-avatar>
-                    <img src="../assets/logo.jpg" alt="user-img">
-                </v-avatar>
-            </router-link>
-            </v-row>
+            <v-avatar>
+                <img src="../assets/logo.jpg" alt="user-img">
+            </v-avatar>
+        </router-link>
+    </v-row>
     <v-spacer></v-spacer>
-    <router-link style="text-decoration: none; color: inherit; margin-left: 2rem; margin-right: 1rem;" to="/"><v-btn color="secondary " depressed elevation="24" outlined rounded>Home</v-btn></router-link>
-    <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/about"> <v-btn color="secondary" depressed elevation="24" outlined rounded>About</v-btn></router-link>
-    <router-link style="text-decoration: none; color: inherit; margin-right: 2rem;" to="/contact">  <v-btn color="secondary" depressed elevation="24" outlined rounded>Contact</v-btn></router-link>
-   <Search/>
+    <router-link style="text-decoration: none; color: inherit; margin-left: 2rem; margin-right: 1rem;" to="/">
+        <v-btn color="secondary " depressed elevation="24" outlined rounded>Home</v-btn>
+    </router-link>
+    <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/about">
+        <v-btn color="secondary" depressed elevation="24" outlined rounded>About</v-btn>
+    </router-link>
+    <router-link style="text-decoration: none; color: inherit; margin-right: 2rem;" to="/contact">
+        <v-btn color="secondary" depressed elevation="24" outlined rounded>Contact</v-btn>
+    </router-link>
+    <Search />
     <v-spacer></v-spacer>
     <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
         <v-btn href="" target="_blank" text>
@@ -34,20 +39,21 @@
     </router-link>
 
     <v-btn text>
-        <span v-if="!$store.state.email" @click="logout" class="mr-2">  <v-icon>
+        <span v-if="!$store.state.email" @click="logout" class="mr-2">
+            <v-icon>
                 mdi-logout
-            </v-icon></span>
+            </v-icon>
+        </span>
     </v-btn>
 </v-app-bar>
 </template>
 
-    
 <script>
 import Search from './Search.vue'
 export default {
     name: 'Header',
-    components:{
-Search
+    components: {
+        Search
     },
 
     data() {
@@ -57,9 +63,9 @@ Search
         }
     },
     methods: {
+        // getting the user info from local storage
         userInfo() {
-            const data = JSON.parse(localStorage.getItem("userLogin"));
-            console.log(data.username, "data name")
+            const data = JSON.parse(localStorage.getItem("userLoginDetail"));
             this.userName = data.username;
             this.image = data.image;
             const dataId = this.$store.state.id.length
@@ -68,12 +74,15 @@ Search
         },
 
         logout() {
+            // removing the user info from local storage
             localStorage.removeItem("userLogin");
+            // redirecting to login page
             this.$router.push('/login');
         }
 
     },
     created() {
+        // calling the user info function
         this.userInfo();
     }
 

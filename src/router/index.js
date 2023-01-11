@@ -8,55 +8,61 @@ import userProfileView from '../views/userProfileView.vue'
 import CartPage from '../views/CartPage.vue'
 import DetailPage from '@/views/DetailPage.vue'
 import BasketCheckout from '../components/BasketCheckout.vue'
-import store from '../store/index.js'
-
 Vue.use(VueRouter)
 
 
-
-const userAuth = store.state.AuthLogin;
-console.log(userAuth,"userAuth")
+// user authentication
+const userAuth = JSON.parse(localStorage.getItem('authUser'));
+console.log(userAuth, "userAuth check")
 const routes = [
+  // route for home page
   {
     path: '/',
     name: 'homeView',
     component: HomeView,
-    meta:{
-      needsAuth:true
+    meta: {
+      needsAuth: true
     }
   },
+  // route for login page
   {
     path: '/login',
     name: 'login',
     component: LoginView
   },
+  // route for about page
   {
     path: '/about',
     name: 'about',
     component: AboutView
   }
   ,
+  // route for contact page
   {
     path: '/contact',
     name: 'contact',
     component: ContactView
   }
   ,
+  // route for user profile page
   {
     path: '/userProfile',
     name: 'userProfile',
     component: userProfileView
   },
+  // route for cart page
   {
     path: '/cartPage',
     name: 'userCart',
     component: CartPage
   },
+  // route for detail page
   {
     path: '/detailPage',
     name: 'detailPage',
     component: DetailPage
   },
+  // route for checkout page
   {
     path: '/basketCheckout',
     name: 'BasketCheckout',
@@ -71,14 +77,15 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to,from,next)=>{
-  if(to.meta.needsAuth){
-    if(userAuth){
+// route guard for user authentication
+router.beforeEach((to, from, next) => {
+  if (to.meta.needsAuth) {
+    if (userAuth) {
       next();
-    }else{
-    next('/login')
+    } else {
+      next('/login')
     }
-  }else{
+  } else {
     next()
   }
 })

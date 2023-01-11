@@ -36,7 +36,7 @@
 
                     <v-card-actions>
 
-                        <v-btn @click="AddToCart(detailPage.id)" color="deep-purple-lighten-2 mx-4 " :disabled="disabledButton"  variant="text">
+                        <v-btn @click="AddToCart(detailPage.id)" color="deep-purple-lighten-2 mx-4 " variant="text">
                             Add To Cart
                         </v-btn>
 
@@ -65,9 +65,11 @@ export default {
 
     }),
     methods: {
+        // add quantity of product
         addProducts() {
             this.count++
         },
+        // subtract quantity of product
         removeProduct() {
             if (this.count > 1) {
                 this.count = this.count - 1
@@ -77,6 +79,7 @@ export default {
             }
 
         },
+        // add product to cart
         AddToCart(id) {
 
             this.loading = true
@@ -88,6 +91,7 @@ export default {
 
     },
     computed: {
+        // get product detail page
         ...mapGetters([
             'detailPage',
         ]),

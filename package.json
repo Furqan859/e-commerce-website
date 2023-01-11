@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "core-js": "^3.8.3",
+    "jw-vue-pagination": "^1.0.3",
     "roboto-fontface": "*",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
