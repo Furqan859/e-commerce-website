@@ -1,67 +1,84 @@
 <template>
-<v-app-bar app justify="space-around">
-    <v-row >
-        <router-link style="text-decoration: none; color: inherit;" to="/">
-            <v-avatar>
-                <img src="../assets/logo.jpg" alt="user-img">
-            </v-avatar>
-        </router-link>
-    </v-row>
-    <v-spacer></v-spacer>
-   <v-layout class="d-none d-lg-block d-md-block">
-    <router-link style="text-decoration: none; color: inherit; margin-left: 1rem; margin-right: 1rem;" to="/">
-        <v-btn color="secondary " depressed elevation="24" outlined rounded>Home</v-btn>
-    </router-link>
-    <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/about">
-        <v-btn color="secondary" depressed elevation="24" outlined rounded>About</v-btn>
-    </router-link>
-    <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/contact">
-        <v-btn color="secondary" depressed elevation="24" outlined rounded>Contact</v-btn>
-    </router-link>
-   </v-layout>
-    <Search  />
-    <v-spacer></v-spacer>
-    <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
-        <v-btn target="_blank" text>
-            <span class="mr-2 d-none d-lg-block d-md-block">{{ userName }}</span>
-            <v-row >
-                <v-avatar>
-                    <img :src=image alt="user-img">
-                </v-avatar>
+    <div>
+        <v-app-bar app justify="space-around">
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="mr-5"></v-app-bar-nav-icon>
+            <v-row>
+                <router-link style="text-decoration: none; color: inherit;" to="/">
+                    <v-avatar>
+                        <img src="../assets/logo.jpg" alt="user-img">
+                    </v-avatar>
+                </router-link>
             </v-row>
-        </v-btn>
-    </router-link>
-    <router-link style="text-decoration: none; color: inherit;" to="/cartPage">
-        <v-btn text>
-            <v-icon>
-                mdi-cart
-            </v-icon>
-            <v-badge :content=this.$store.state.product.length></v-badge>
-        </v-btn>
-    </router-link>
 
-    <v-btn text>
-        <span v-if="!$store.state.email" @click="logout" >
-            <v-icon>
-                mdi-logout
-            </v-icon>
-        </span>
-    </v-btn>
-</v-app-bar>
+            <v-spacer></v-spacer>
+
+            <Search />
+            <router-link style="text-decoration: none; color: inherit;" to="/cartPage">
+                <v-btn text>
+                    <v-icon>
+                        mdi-cart
+                    </v-icon>
+                    <v-badge :content=this.$store.state.product.length></v-badge>
+                </v-btn>
+            </router-link>
+
+            <v-btn text>
+                <span v-if="!$store.state.email" @click="logout">
+                    <v-icon>
+                        mdi-logout
+                    </v-icon>
+                </span>
+            </v-btn>
+        </v-app-bar>
+
+        <!-- navigation bar -->
+        <v-navigation-drawer app v-model="drawer" bottom temporary class=" d-flex">
+            <v-list-item class="mx-auto overflow-hidden justify-sm-center align-self-center align-self-sm-auto ">
+                <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
+                    <v-btn target="_blank" text>
+                        <v-row>
+                            <v-avatar>
+                                <img :src=image alt="user-img">
+                            </v-avatar>
+                        </v-row>
+                        <span>{{ userName }}</span>
+                    </v-btn>
+                </router-link>
+            </v-list-item>
+
+            <v-divider></v-divider>
+            <div align="center" justify="space-around" class="pa-6">
+                <v-btn to="/" min-width="150" class="my-2">
+                    Home
+                </v-btn><br>
+                <v-btn to="/about"  min-width="150" class="my-2">
+                    About
+                </v-btn><br>
+                <v-btn to="/contact"  min-width="150" class="my-2">
+                    Contact
+                </v-btn>
+               
+            </div>
+            <InputFilterData />
+        </v-navigation-drawer>
+    </div>
 </template>
 
 <script>
+import InputFilterData from './InputFilterData.vue';
 import Search from './Search.vue'
 export default {
     name: 'Header',
     components: {
-        Search
+        Search,
+        InputFilterData
     },
 
     data() {
         return {
             userName: '',
             image: '',
+            drawer: false,
         }
     },
     methods: {
@@ -81,7 +98,7 @@ export default {
             localStorage.removeItem("userLogin");
             localStorage.removeItem("authUser");
             // redirecting to login page
-            
+
             this.$router.push('/login');
         }
 

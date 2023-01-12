@@ -1,41 +1,26 @@
 <template>
-<v-container fluid>
-    <template>
-        <v-container>
-            <v-row no-gutters>
-                <v-col>
-                    <div class="text-center">
-                        <v-menu down offset-y>
-                            <template v-slot:activator="{ on, attrs }">
-                                <v-btn class="border-none" v-bind="attrs" v-on="on">
-                                    Product Select
-                                    <v-icon>
-                                        mdi-arrow-down
-                                    </v-icon>
-                                </v-btn>
-                            </template>
-                            <v-list>
-                                <v-list-item v-for="item in $store.state.filterCategory" :key="item.id" :item="item">
-
-                                    <v-list-item-title>
-                                        <v-chip @click="filterProduct(item)"> {{ item }}</v-chip>
-                                    </v-list-item-title>
-
-                                </v-list-item>
-
-                            </v-list>
-                        </v-menu>
-
-                    </div>
-
-                </v-col>
-
-            </v-row>
-        </v-container>
-    </template>
-    <v-dialog v-model="dialog" width="500">
+    <div>
+        <div>
+        <v-row justify="center">
+            <v-expansion-panels accordion>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>Select</v-expansion-panel-header>
+                    <v-expansion-panel-content align="center"
+                    v-for="item in $store.state.filterCategory" :key="item.id" :item="item" 
+                    
+                    >
+                        <v-btn min-width="193" elevation="5"  @click="filterProduct(item)">{{item}}</v-btn><br>
+                        
+                          
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </v-expansion-panels>
+        </v-row>
+    </div>
+    
+    <v-dialog v-model="dialog" width="800">
         <div v-for="filterData in selectFilterCategory" :key="filterData.id">
-            <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+            <v-card :loading="loading" class="mx-auto my-12" max-width="874" max-height="650">
                 <template v-slot:loader="{ isActive }">
                     <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
                 </template>
@@ -43,7 +28,7 @@
                 <v-window v-model="window" show-arrows>
                     <v-window-item v-for="image in filterData.images" :key="image">
 
-                        <v-card height="200px" class="d-flex justify-center align-center">
+                        <v-card height="400px" class="d-flex justify-center align-center">
 
                             <router-link :to="{ path: 'detailPage', query: { filterDataId: filterData.id } }">
                                 <v-img @click="DetailPageId(filterData.id)" cover height="200" :src="image" :productId="filterData.id"></v-img>
@@ -81,7 +66,7 @@
 
                 <v-card-actions>
 
-                    <v-btn @click="AddToCart(filterData.id)" color="deep-purple-lighten-2 " variant="text">
+                    <v-btn  @click="AddToCart(filterData.id)" color="deep-purple-lighten-2 " variant="text">
                         Add To Cart
                     </v-btn>
 
@@ -90,7 +75,9 @@
         </div>
         <v-btn @click="dialog = false">Close</v-btn>
     </v-dialog>
-</v-container>
+
+</div>
+
 </template>
 
 <script>

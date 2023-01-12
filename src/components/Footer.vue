@@ -1,5 +1,5 @@
 <template>
-<v-footer dark padless>
+<v-footer dark >
     <v-card flat tile class=" lighten-1 white--text text-center">
         <v-card-text>
             <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
@@ -15,7 +15,7 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+            {{ new Date().getFullYear() }} — <strong>E-commerce</strong>
         </v-card-text>
     </v-card>
 </v-footer>
