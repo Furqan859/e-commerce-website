@@ -38,9 +38,9 @@
                             <v-row align="center" class="my-2 mx-4">
                                 <v-row> ${{ prod.price }}</v-row>
                                 <div>
-                                    <v-btn x-small class="my-4 mx-4" @click="addQuantity">+</v-btn>
-                                    <v-row class="font-weight-black">Total Quantity:{{ totalQuantity }}</v-row>
-                                    <v-btn x-small class="my-4 mx-4" @click="removeQuantity">-</v-btn>
+                                    <v-btn x-small class="my-2 mx-2" @click="addQuantity(prod.id)">+</v-btn>
+                                    {{ totalQuantity }}
+                                    <v-btn x-small class="my-2 mx-2" @click="removeQuantity(prod.id)">-</v-btn>
                                 </div>
                             </v-row>
 
@@ -50,12 +50,14 @@
                         <v-card-actions>
 
                             <v-row>
-                                <v-btn color="deep-purple-lighten-2 mx-4 " variant="text"
+                                <v-btn color="mx-3 " variant="text"
                                     @click="removeCartDataId(index)">
-                                    Remove From Cart
+                                    Remove
                                 </v-btn>
+                                <div>Quantity:{{ totalQuantity }} prodId: {{ prod.id }}</div>
                             </v-row>
                             <div>Total Price:${{ totalQuantity * prod.price }}</div>
+                            
 
                         </v-card-actions>
                     </v-card>
@@ -109,12 +111,15 @@ export default {
             console.log(id, "this is remove id")
         },
         // add quantity to cart
-        addQuantity() {
+        addQuantity(id) {
+            if(id == id){
             this.totalQuantity++
-
+            console.log(id, "this is add id")
+            }
         },
         // remove quantity from cart
-        removeQuantity() {
+        removeQuantity(id) {
+            console.log(id, "this is remove id")
             if (this.totalQuantity > 1) {
                 this.totalQuantity = this.totalQuantity - 1
             } else {

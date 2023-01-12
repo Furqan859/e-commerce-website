@@ -2,6 +2,7 @@
 <v-app>
 
     <v-main>
+        <!-- about images -->
         <v-container fluid>
             <v-img height="350px" src="../assets/about1.webp">
             </v-img>

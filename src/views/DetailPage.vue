@@ -36,9 +36,10 @@
 
                     <v-card-actions>
 
-                        <v-btn @click="AddToCart(detailPage.id)" color="deep-purple-lighten-2 mx-4 " variant="text">
+                       <v-row> <v-btn @click="AddToCart(detailPage.id)" :disabled="isActive" color="deep-purple-lighten-2 mx-4 " variant="text">
                             Add To Cart
-                        </v-btn>
+                        </v-btn></v-row>
+                        <div>Discount:{{ detailPage.discountPercentage }}%</div>
 
                     </v-card-actions>
                 </v-card>
@@ -62,30 +63,20 @@ export default {
         selection: 1,
         length: 3,
         window: 0,
+        
 
     }),
     methods: {
-        // add quantity of product
-        addProducts() {
-            this.count++
-        },
-        // subtract quantity of product
-        removeProduct() {
-            if (this.count > 1) {
-                this.count = this.count - 1
-
-            } else {
-                this.count = 1
-            }
-
-        },
         // add product to cart
-        AddToCart(id) {
-
+        AddToCart(id) { 
+            if(id == id){
+                this.isActive = true
+            }
             this.loading = true
             setTimeout(() => (this.loading = false), 2000)
             console.log(id)
             this.$store.dispatch('ProductDescription', id)
+
 
         },
 

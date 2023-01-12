@@ -13,7 +13,6 @@ export default new Vuex.Store({
     product: [],
     filterCategory: [],
     id: '',
-    AuthLogin: true,
     selectFilterCategory: [],
     searchData: [],
     detailPage: [],
@@ -28,14 +27,13 @@ export default new Vuex.Store({
     filterCategory: state => state.filterCategory,
     detailPage: state => state.detailPage,
     selectFilterCategory: state => state.selectFilterCategory,
-    AuthLogin: state => state.AuthLogin,
     productQuantity:state=>state.productQuantity,
 
   },
 
   // mutations is used to update the state
   mutations: {
-
+  
     removeCartData(state, id) {
       state.product.splice(id, 1)
       console.log(this.state.product.splice(id, 1), "console remove data")
@@ -79,8 +77,8 @@ export default new Vuex.Store({
 
 
 // user login action and validation
-    async loginUser(user) {
-      const userDataApi = await fetch('https://dummyjson.com/auth/login', {
+    async loginUser(state,user) {
+      const userData = await fetch('https://dummyjson.com/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -91,16 +89,21 @@ export default new Vuex.Store({
       })
 
       // user login store in local storage
-      const userLogin = await userDataApi.json();
-      localStorage.setItem('userLoginDetail', JSON.stringify(userLogin));
-      const data = JSON.parse(localStorage.getItem("userLoginDetail"));
+      const userInformation = await userData.json();
+      console.log(userInformation,"user login")
+       localStorage.setItem('userLoginDetail', JSON.stringify( userInformation));
+      // const data = JSON.parse(localStorage.getItem("userLoginDetail"));
 
     //  user login validation and redirect to home page
-      if (user.userName == data.username) {
+      if (user.userName == userInformation.username && userData.status == 200) {
         const userLoggedIn = true;
+        localStorage.setItem('authUser', JSON.stringify(userLoggedIn));
         console.log(userLoggedIn, "userLoggedIn")
         window.location.replace('/')
-      } else alert('Invalid Credentials')
+      } else {
+      alert('Invalid Credentials')
+      }
+    
     },
 
 

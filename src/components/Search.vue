@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-text-field v-model="search"   @keyup="dbSearch" color="black"></v-text-field>
+    <v-text-field v-model="search"   @keyup="dbSearch" color="black" class=" d-none d-lg-block d-md-block d-sm-block" placeholder="Search..." ></v-text-field>
 </div>
 </template>
 

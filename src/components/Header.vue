@@ -1,6 +1,6 @@
 <template>
-<v-app-bar app>
-    <v-row justify="space-around">
+<v-app-bar app justify="space-around">
+    <v-row >
         <router-link style="text-decoration: none; color: inherit;" to="/">
             <v-avatar>
                 <img src="../assets/logo.jpg" alt="user-img">
@@ -8,21 +8,23 @@
         </router-link>
     </v-row>
     <v-spacer></v-spacer>
-    <router-link style="text-decoration: none; color: inherit; margin-left: 2rem; margin-right: 1rem;" to="/">
+   <v-layout class="d-none d-lg-block d-md-block">
+    <router-link style="text-decoration: none; color: inherit; margin-left: 1rem; margin-right: 1rem;" to="/">
         <v-btn color="secondary " depressed elevation="24" outlined rounded>Home</v-btn>
     </router-link>
     <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/about">
         <v-btn color="secondary" depressed elevation="24" outlined rounded>About</v-btn>
     </router-link>
-    <router-link style="text-decoration: none; color: inherit; margin-right: 2rem;" to="/contact">
+    <router-link style="text-decoration: none; color: inherit; margin-right: 1rem;" to="/contact">
         <v-btn color="secondary" depressed elevation="24" outlined rounded>Contact</v-btn>
     </router-link>
-    <Search />
+   </v-layout>
+    <Search  />
     <v-spacer></v-spacer>
     <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
-        <v-btn href="" target="_blank" text>
-            <span class="mr-2">{{ userName }}</span>
-            <v-row justify="space-around">
+        <v-btn target="_blank" text>
+            <span class="mr-2 d-none d-lg-block d-md-block">{{ userName }}</span>
+            <v-row >
                 <v-avatar>
                     <img :src=image alt="user-img">
                 </v-avatar>
@@ -39,7 +41,7 @@
     </router-link>
 
     <v-btn text>
-        <span v-if="!$store.state.email" @click="logout" class="mr-2">
+        <span v-if="!$store.state.email" @click="logout" >
             <v-icon>
                 mdi-logout
             </v-icon>
@@ -68,6 +70,7 @@ export default {
             const data = JSON.parse(localStorage.getItem("userLoginDetail"));
             this.userName = data.username;
             this.image = data.image;
+            // cart length
             const dataId = this.$store.state.id.length
             console.log(dataId)
 
@@ -76,7 +79,9 @@ export default {
         logout() {
             // removing the user info from local storage
             localStorage.removeItem("userLogin");
+            localStorage.removeItem("authUser");
             // redirecting to login page
+            
             this.$router.push('/login');
         }
 
