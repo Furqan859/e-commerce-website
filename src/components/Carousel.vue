@@ -1,6 +1,7 @@
 
   
   <template>
+    <!-- carousel images -->
     <v-carousel >
       <v-carousel-item
         v-for="(item,i) in items"

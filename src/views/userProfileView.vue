@@ -1,4 +1,5 @@
 <template>
+    <!-- user profile card -->
 <v-app>
     <v-main>
         <v-container fluid>

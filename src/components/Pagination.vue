@@ -1,6 +1,6 @@
 <template>
      <!-- v-model="page" -->
-     <v-pagination  v-model="page"  :length="4" circle></v-pagination>
+     <v-pagination  v-model="page"  :length="4" ></v-pagination>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default {
           }
      },
      methods: {
+          // pagination function 
           updatePage() {
              const  start = (this.page - 1) * this.perPage;
              const  end = start + this.perPage;

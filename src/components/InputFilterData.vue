@@ -1,4 +1,5 @@
 <template>
+    <!-- filter category card -->
     <div>
         <div>
         <v-row justify="center">
@@ -6,9 +7,7 @@
                 <v-expansion-panel>
                     <v-expansion-panel-header>Select</v-expansion-panel-header>
                     <v-expansion-panel-content align="center"
-                    v-for="item in $store.state.filterCategory" :key="item.id" :item="item" 
-                    
-                    >
+                    v-for="item in $store.state.filterCategory" :key="item.id" :item="item" >
                         <v-btn min-width="193" elevation="5"  @click="filterProduct(item)">{{item}}</v-btn><br>
                         
                           

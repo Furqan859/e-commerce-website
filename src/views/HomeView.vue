@@ -1,5 +1,6 @@
 <template>
 <v-row>
+    <!-- carousel component -->
     <Carousel />
     <v-main>
         <v-app app>
@@ -52,6 +53,7 @@ export default {
         ...mapState(['products']),
         //  pagination function
         updatePage() {
+            //  pagination function
             const start = (this.page - 1) * this.perPage;
             const end = start + this.perPage;
             return this.products.slice(start, end);

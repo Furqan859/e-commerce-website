@@ -1,5 +1,6 @@
 <template>
 <v-container>
+    <!-- user information -->
     <h2 class="display-2">Basket checkout</h2>
 
     <form action="">

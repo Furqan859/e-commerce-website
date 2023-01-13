@@ -1,4 +1,5 @@
 <template>
+    <!-- footer -->
 <v-footer dark >
     <v-card flat tile class=" lighten-1 white--text text-center">
         <v-card-text>

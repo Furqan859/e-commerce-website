@@ -1,4 +1,5 @@
 <template>
+    <!-- detail page product show -->
 <v-sheet :color="`grey ${inject.theme.default.isDark ? 'darken-2' : 'lighten-4'}`" class="pa-3">
     <v-skeleton-loader class="mx-auto" max-width="600" type="card">
         <v-container>

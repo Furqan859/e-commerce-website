@@ -1,4 +1,5 @@
 <template>
+    <!-- cart page where products show -->
     <v-container>
         <h2 class="display-2 mb-4">Basket</h2>
 

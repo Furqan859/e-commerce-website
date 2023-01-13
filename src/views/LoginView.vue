@@ -1,4 +1,5 @@
 <template>
+    <!-- login page -->
 <v-app id="inspire" @submit.prevent="Submit">
     <v-content>
         <v-container fluid fill-height>

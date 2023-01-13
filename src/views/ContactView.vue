@@ -1,4 +1,5 @@
 <template>
+    <!-- contact page -->
     <v-app>
         <v-main>
             <v-container class="grey lighten-5">

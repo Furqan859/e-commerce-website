@@ -1,52 +1,47 @@
 <template>
-<v-card :loading="loading" class="mx-auto my-3" max-width="374">
+<!-- main home products card  -->
+<v-card :loading="loading" class="mx-auto my-3" width="350">
     <template v-slot:loader="{ isActive }">
-        <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
+        <v-progress-linear :active="isActive" color="deep-purple" height="3" indeterminate></v-progress-linear>
     </template>
+    <v-window v-model="window" show-arrows max-height="300px" max-width="100%">
+        <v-window-item v-for="image in product.images" :key="image">
 
-    <v-sheet :color="`grey ${inject.theme.default.isDark ? 'darken-2' : 'lighten-4'}`" class="pa-3">
-        <v-skeleton-loader class="mx-auto" max-width="600" type="card">
+            <v-card class="d-flex justify-center align-center">
 
-            <v-window v-model="window" show-arrows>
-                <v-window-item v-for="image in product.images" :key="image">
+                <router-link :to="{ path: 'detailPage', query: { productId: product.id }}">
+                    <v-img height="250" :src="image" :productId="product.id" @click="DetailPageId(product.id)" :contain="true" class="fill-height" justify="center" align="center" image-size="cover"></v-img>
+                </router-link>
+            </v-card>
 
-                    <v-card height="200px" class="d-flex justify-center align-center">
+        </v-window-item>
+    </v-window>
 
-                        <router-link :to="{ path: 'detailPage', query: { productId: product.id }}">
-                            <v-img cover height="200" :src="image"  :productId="product.id" @click="DetailPageId(product.id)"></v-img>
-                        </router-link>
-                    </v-card>
+    <v-card-title>
+        <v-row align="center" class="mx-0">
+            <v-row>{{ product.title }}</v-row>
+            <v-rating :v-model="product.rating" half-increments readonly size="large">
+            </v-rating>
+            <div class="text-grey ms-4">
+                {{ product.rating }}
+            </div>
 
-                </v-window-item>
-            </v-window>
+        </v-row>
+    </v-card-title>
 
-            <v-card-title>
-                <v-row align="center" class="mx-0">
-                    <v-row>{{ product.title }}</v-row>
-                    <v-rating :v-model="product.rating" half-increments readonly size="large">
-                    </v-rating>
-                    <div class="text-grey ms-4">
-                        {{ product.rating }}
-                    </div>
+    <v-card-subtitle>
+        <span class="my-2">{{ product.brand }}</span>
 
-                </v-row>
-            </v-card-title>
+        <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
+    </v-card-subtitle>
+    <v-card-text>
 
-            <v-card-subtitle>
-                <span class="my-2">{{ product.brand }}</span>
+        <div class=" text-subtitle-1">
+            ${{ product.price }}
+        </div>
 
-                <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
-            </v-card-subtitle>
-            <v-card-text>
-
-                <div class=" text-subtitle-1">
-                    ${{ product.price }}
-                </div>
-
-                <div>{{ product.description }}</div>
-            </v-card-text>
-        </v-skeleton-loader>
-    </v-sheet>
+        <div>{{ product.description }}</div>
+    </v-card-text>
 </v-card>
 </template>
 
