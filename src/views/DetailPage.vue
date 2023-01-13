@@ -1,12 +1,12 @@
 <template>
-    <!-- detail page product show -->
+<!-- detail page product show -->
 <v-sheet :color="`grey ${inject.theme.default.isDark ? 'darken-2' : 'lighten-4'}`" class="pa-3">
     <v-skeleton-loader class="mx-auto" max-width="600" type="card">
         <v-container>
             <v-list two-line class="mb-5">
                 <template class="mb-5">
                     <v-card avatar>
-                        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+                        <v-card :loading="loading" class="mx-auto my-12" max-width="350">
                             <template v-slot:loader="{ isActive }">
                                 <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
                             </template>
@@ -16,7 +16,7 @@
 
                                     <v-card height="300px" class="d-flex justify-center align-center">
 
-                                        <v-img cover height="300" :src="image"></v-img>
+                                        <v-img cover height="300" :src="image" :contain="true" class="fill-height" justify="center" align="center" image-size="cover"></v-img>
 
                                     </v-card>
 
@@ -40,11 +40,11 @@
                             <v-card-actions>
 
                                 <v-row>
-                                    <v-btn @click="AddToCart(detailPage.id)" :disabled="isActive" color="deep-purple-lighten-2 mx-4 " variant="text">
+                                    <v-btn @click="AddToCart(detailPage.id)" :disabled="isActive" color="deep-purple-lighten-2 mx-5 " variant="text">
                                         Add To Cart
                                     </v-btn>
                                 </v-row>
-                                <div>Discount:{{ detailPage.discountPercentage }}%</div>
+                                <v-btn depressed  class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="loader = 'loading'">Discount:{{ detailPage.discountPercentage }}%</v-btn>
 
                             </v-card-actions>
                         </v-card>

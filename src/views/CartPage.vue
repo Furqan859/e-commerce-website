@@ -6,18 +6,19 @@
         <v-list two-line class="mb-5">
             <template v-if="product.length != 0">
                 <v-card v-for="(prod, index) in product" :key="prod.id" avatar>
-                    <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+                    <v-card :loading="loading" class="mx-auto my-12" width="350">
                         <template v-slot:loader="{ isActive }">
                             <v-progress-linear :active="isActive" color="deep-purple" height="4"
                                 indeterminate></v-progress-linear>
                         </template>
 
-                        <v-window v-model="window" show-arrows>
+                        <v-window v-model="window" show-arrows max-height="300p">
                             <v-window-item v-for="image in prod.images" :key="image">
 
                                 <v-card height="200px" class="d-flex justify-center align-center">
 
-                                    <v-img cover height="200" :src="image"></v-img>
+                                    <v-img cover height="250" :src="image" :contain="true" class="fill-height"
+                                        justify="center" align="center" image-size="cover"></v-img>
 
                                 </v-card>
 
@@ -25,40 +26,44 @@
                         </v-window>
 
                         <v-card-title>
+
                             <v-row align="center" class="mx-4">
                                 <v-row>{{ prod.title }}</v-row>
-                                <div class="text-grey mx-4">
-                                    {{ prod.brand }}
-                                </div>
+
+                                <!-- <div class="text-grey mx-4">
+                                {{ prod.brand }}
+                            </div> -->
 
                             </v-row>
                         </v-card-title>
 
                         <v-card-text>
+                            <v-row class="mx-1 my-auto">{{ prod.brand }}</v-row>
+                            <h1 class="my-1 black--text "> ${{ prod.price }}</h1>
 
-                            <v-row align="center" class="my-2 mx-4">
-                                <v-row> ${{ prod.price }}</v-row>
-                                <div>
-                                    <v-btn x-small class="my-2 mx-2" @click="addQuantity(prod.id)">+</v-btn>
-                                    {{ totalQuantity }}
-                                    <v-btn x-small class="my-2 mx-2" @click="removeQuantity(prod.id)">-</v-btn>
-                                </div>
-                            </v-row>
+                            <v-layout row class="pa-2" justify-center>
+                            <v-btn class="mx-2 " x-small v-if="prod.quantity<=prod.stock " @click="prod.quantity++">+</v-btn>
+                            <p>{{ prod.quantity }}</p>
+                            <v-btn x-small class="mx-2 " v-if="prod.quantity>1 " @click="prod.quantity--">-</v-btn>
+                            </v-layout>
+
+                                <v-chip cols="12" color="black " class="white--text ">
+                                    Discount:{{ prod.discountPercentage }}%
+                                </v-chip>
+
+                            
 
                             <div class="mx-4">{{ prod.description }}</div>
                         </v-card-text>
 
                         <v-card-actions>
+                            <v-btn color="mx-3 " variant="text" @click="removeCartDataId(index)">
+                                Remove
+                            </v-btn>
 
                             <v-row>
-                                <v-btn color="mx-3 " variant="text"
-                                    @click="removeCartDataId(index)">
-                                    Remove
-                                </v-btn>
-                                <div>Quantity:{{ totalQuantity }} prodId: {{ prod.id }}</div>
                             </v-row>
-                            <div>Total Price:${{ totalQuantity * prod.price }}</div>
-                            
+                            <div>Total Price:${{ prod.quantity * prod.price }}</div>
 
                         </v-card-actions>
                     </v-card>
@@ -93,6 +98,7 @@ import {
 } from 'vuex'
 
 export default {
+
     data: () => ({
 
         loading: false,
@@ -100,7 +106,6 @@ export default {
         length: 3,
         window: 0,
         totalPrice: 0,
-        totalQuantity: 1,
 
     })
 
@@ -111,25 +116,6 @@ export default {
             this.$store.commit('removeCartData', id)
             console.log(id, "this is remove id")
         },
-        // add quantity to cart
-        addQuantity(id) {
-            if(id == id){
-            this.totalQuantity++
-            console.log(id, "this is add id")
-            }
-        },
-        // remove quantity from cart
-        removeQuantity(id) {
-            console.log(id, "this is remove id")
-            if (this.totalQuantity > 1) {
-                this.totalQuantity = this.totalQuantity - 1
-            } else {
-                this.totalQuantity = 1
-            }
-
-        },
-
-
 
     },
     computed: {

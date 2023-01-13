@@ -16,7 +16,7 @@
                 </v-layout>
                 <!-- pagination -->
                 <div class="text-center mb-5">
-                    <v-pagination v-model="page" :length="4" circle></v-pagination>
+                    <v-pagination  v-model="page" :length="4" circle></v-pagination>
                 </div>
             </v-container>
         </v-app>
@@ -46,6 +46,12 @@ export default {
         SearchCard,
         Carousel
     },
+    methods:{
+        scrollToTop() {
+            window.scrollTo(0,0);
+        }
+    }
+    ,
     computed: {
         // get search filter from state and pass to component
         ...mapState(['searchData']),
@@ -53,10 +59,12 @@ export default {
         ...mapState(['products']),
         //  pagination function
         updatePage() {
+            this. scrollToTop();
             //  pagination function
             const start = (this.page - 1) * this.perPage;
             const end = start + this.perPage;
             return this.products.slice(start, end);
+            
 
         }
 

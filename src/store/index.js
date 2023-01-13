@@ -28,11 +28,13 @@ export default new Vuex.Store({
     detailPage: state => state.detailPage,
     selectFilterCategory: state => state.selectFilterCategory,
     productQuantity:state=>state.productQuantity,
+    totalQuantity:state=>state.totalQuantity,
 
   },
 
   // mutations is used to update the state
   mutations: {
+
   
     removeCartData(state, id) {
       state.product.splice(id, 1)
@@ -120,7 +122,9 @@ export default new Vuex.Store({
     async ProductDescription({ commit }, id) {
       const getSingleProduct = await fetch(`https://dummyjson.com/products/${id}`)
       const singleProductFetch = await getSingleProduct.json()
+      singleProductFetch.quantity=1
       commit('SET_PRODUCT', singleProductFetch);
+      console.log(singleProductFetch, "singleProductFetch");
     },
 
 

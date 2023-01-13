@@ -10,7 +10,7 @@
             <v-card class="d-flex justify-center align-center">
 
                 <router-link :to="{ path: 'detailPage', query: { productId: product.id }}">
-                    <v-img height="250" :src="image" :productId="product.id" @click="DetailPageId(product.id)" :contain="true" class="fill-height" justify="center" align="center" image-size="cover"></v-img>
+                    <v-img cover height="250" :src="image" :productId="product.id" @click="DetailPageId(product.id)" :contain="true" class="fill-height" justify="center" align="center" image-size="cover"> </v-img>
                 </router-link>
             </v-card>
 
