@@ -20,7 +20,7 @@
     <v-card-title>
         <v-row align="center" class="mx-0">
             <v-row>{{ product.title }}</v-row>
-            <v-rating :v-model="product.rating" half-increments readonly size="large">
+            <v-rating :value="product.rating" half-increments readonly size="large">
             </v-rating>
             <div class="text-grey ms-4">
                 {{ product.rating }}

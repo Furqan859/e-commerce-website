@@ -5,7 +5,7 @@
         <v-row justify="center">
             <v-expansion-panels accordion>
                 <v-expansion-panel>
-                    <v-expansion-panel-header>Select</v-expansion-panel-header>
+                    <v-expansion-panel-header>Select Categories</v-expansion-panel-header>
                     <v-expansion-panel-content align="center"
                     v-for="item in $store.state.filterCategory" :key="item.id" :item="item" >
                         <v-btn min-width="193" elevation="5"  @click="filterProduct(item)">{{item}}</v-btn><br>
@@ -17,9 +17,9 @@
         </v-row>
     </div>
     
-    <v-dialog v-model="dialog" width="800">
+    <v-dialog v-model="dialog" max-width="800">
         <div v-for="filterData in selectFilterCategory" :key="filterData.id">
-            <v-card :loading="loading" class="mx-auto my-12" max-width="874" max-height="650">
+            <v-card :loading="loading" class="mx-auto my-12" max-width="874" max-height="850">
                 <template v-slot:loader="{ isActive }">
                     <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
                 </template>
@@ -40,7 +40,7 @@
                 <v-card-title>
                     <v-row align="center" class="mx-0">
                         <v-row>{{ filterData.title }}</v-row>
-                        <v-rating :v-model="filterData.rating" half-increments readonly size="large">
+                        <v-rating :value="filterData.rating" half-increments readonly size="large">
                         </v-rating>
                         <div class="text-grey ms-4">
                             {{ filterData.rating }}
