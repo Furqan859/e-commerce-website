@@ -78,7 +78,7 @@
             </v-row>
             <div>
                 <div>Delivery Charges :${{ product.deliveryCharge  }}</div>
-                <div> Grand Total : {{ product.price }} * {{ product.quantity }}  - {{ product.discountPercentage }} </div>
+                <div> Grand Total : {{totalPrices}} </div>
             </div>
         </v-row>
     </v-container>
@@ -116,7 +116,13 @@ export default {
     },
     computed: {
         // get data from store
-        ...mapGetters(['product'])
+        ...mapGetters(['product']),
+        // calculate total price function
+        totalPrices() {
+            return this.product.reduce((total, prod) => {
+                return total + prod.price * prod.quantity
+            }, 0)
+        }
 
     }
 
