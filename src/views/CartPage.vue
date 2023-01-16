@@ -77,7 +77,7 @@
                 </router-link>
             </v-row>
             <div>
-                <div>Delivery Charges :${{ product.deliveryCharge  }}</div>
+                <div>Delivery Charges :$50</div>
                 <div> Grand Total : {{totalPrices}} </div>
             </div>
         </v-row>
@@ -120,7 +120,7 @@ export default {
         // calculate total price function
         totalPrices() {
             return this.product.reduce((total, prod) => {
-                return total + prod.price * prod.quantity
+                return total + prod.price * prod.quantity + 50
             }, 0)
         }
 
