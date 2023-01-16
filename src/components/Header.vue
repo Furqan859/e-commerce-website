@@ -10,6 +10,7 @@
                     </v-avatar>
                 </router-link>
             </v-row>
+            
 
             <v-spacer></v-spacer>
 
@@ -48,6 +49,7 @@
             </v-list-item>
 
             <v-divider></v-divider>
+            <!-- sidebar pages -->
             <div align="center" justify="space-around" class="pa-6">
                 <v-btn to="/" min-width="150" class="my-2">
                     Home
@@ -57,6 +59,10 @@
                 </v-btn><br>
                 <v-btn to="/contact"  min-width="150" class="my-2">
                     Contact
+                </v-btn><br>
+                <!-- for add new products -->
+                <v-btn to="/addNewProduct"  min-width="150" class="my-2">
+                    Add Product
                 </v-btn>
                
             </div>

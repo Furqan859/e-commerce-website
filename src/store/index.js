@@ -16,7 +16,6 @@ export default new Vuex.Store({
     selectFilterCategory: [],
     searchData: [],
     detailPage: [],
-
   },
 
   // getters is used to set data in component
@@ -27,15 +26,10 @@ export default new Vuex.Store({
     filterCategory: state => state.filterCategory,
     detailPage: state => state.detailPage,
     selectFilterCategory: state => state.selectFilterCategory,
-    productQuantity:state=>state.productQuantity,
-    totalQuantity:state=>state.totalQuantity,
-
   },
 
   // mutations is used to update the state
   mutations: {
-
-  
     removeCartData(state, id) {
       state.product.splice(id, 1)
       console.log(this.state.product.splice(id, 1), "console remove data")
@@ -76,8 +70,6 @@ export default new Vuex.Store({
 
   // actions is used to call mutations
   actions: {
-
-
 // user login action and validation
     async loginUser(state,user) {
       const userData = await fetch('https://dummyjson.com/auth/login', {
@@ -105,10 +97,7 @@ export default new Vuex.Store({
       } else {
       alert('Invalid Credentials')
       }
-    
     },
-
-
 
 
 //  get all product from api
@@ -123,6 +112,7 @@ export default new Vuex.Store({
       const getSingleProduct = await fetch(`https://dummyjson.com/products/${id}`)
       const singleProductFetch = await getSingleProduct.json()
       singleProductFetch.quantity=1
+      singleProductFetch.deliveryCharge=5
       commit('SET_PRODUCT', singleProductFetch);
       console.log(singleProductFetch, "singleProductFetch");
     },
@@ -134,7 +124,7 @@ export default new Vuex.Store({
       const Select_Category = await fetchProduct.json()
       commit('Update_Select_Product', Select_Category)
     },
-
+    
 
     // get filter category from api
     async filterSingleProduct({ commit }, productFilterName) {
