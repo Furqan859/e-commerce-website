@@ -54,7 +54,7 @@
                         Disagree
                     </v-btn>
 
-                    <v-btn color="green darken-1" text @click="dialog = false">
+                    <v-btn color="green darken-1" text @click="dialog= false">
                         <router-link style="text-decoration: none; color: inherit;" to="/">Agree</router-link>
                     </v-btn>
                 </v-card-actions>
@@ -75,7 +75,7 @@ export default {
             dialog: false,
             product: null
         }
-    },
+    }
 
 }
 </script>
