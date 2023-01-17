@@ -162,25 +162,43 @@ Here Visitors can see the publicly available features such as browse products , 
   </ul>
 
   <h3>Home Page</h3>
+  <p>In Home Page all products Show</p>
   <img src="./src/assets/website-Images/website.PNG"/>
   <h3>About Page</h3>
+  <p>You check about website</p>
   <img src="./src/assets/website-Images/about.PNG"/>
   <h3>Contact Page</h3>
+  <p>You can contact the website dealer</p>
     <img src="./src/assets/website-Images/contact.PNG"/>
   <h3>User Profile Page</h3>
+  <p>you can check the user profile</p>
   <img src="./src/assets/website-Images/userProfile.PNG"/>
   <h3>Cart Page</h3>
+  <p>In cart page show selected products and price</p>
   <img src="./src/assets/website-Images/cartPage.PNG"/>
   <h3>Detail Page</h3>
+  <p>Product detail</p>
   <img src="./src/assets/website-Images/detailPage.PNG"/>
   <h3>Login Page</h3>
+  <p>User login Page</p>
   <img src="./src/assets/website-Images/login.PNG"/>
   <h3>CheckOut Page</h3>
+  <p>User can checkout the products which is selected</p>
 <img src="./src/assets/website-Images/checkoutPage.PNG"/>
 <h3>SideBar</h3>
+<p>In side bar home menu and filter categories</p>
 <img src="./src/assets/website-Images/sidebar.PNG"/>
 <h3>Filter Categories</h3>
+<p>In Filter Categories open a modal you can select product you want</p>
 <img src="./src/assets/website-Images/filter.png"/>
 <h3>Search Product</h3>
+<p>You can search any product here by name</p>
 <img src="./src/assets/website-Images/search.PNG"/>
+<h3>Pagination</h3>
+<p>you can select the page after the end of the page</p>
+<img src="./src/assets/website-Images/pagination.PNG"/>
+<h3>footer</h3>
+<p>static data</p>
+<img src="./src/assets/website-Images/footer.PNG"/>
+
 
