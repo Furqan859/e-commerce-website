@@ -196,9 +196,9 @@ Here Visitors can see the publicly available features such as browse products , 
 <img src="./src/assets/website-Images/search.PNG"/>
 <h3>Pagination</h3>
 <p>you can select the page after the end of the page</p>
-<img src="./src/assets/website-Images/pagination.PNG"/>
+<img src="./src/assets/website-Images/pagination.png"/>
 <h3>footer</h3>
 <p>static data</p>
-<img src="./src/assets/website-Images/footer.PNG"/>
+<img src="./src/assets/website-Images/footer.png"/>
 
 
