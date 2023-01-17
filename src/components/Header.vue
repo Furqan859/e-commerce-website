@@ -12,13 +12,13 @@
         </v-row>
 
         <v-row>
-            <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/">
+            <router-link exact tag="active"  style="text-decoration: none;  padding: 5px; curser:pointer;" to="/">
                 Home
             </router-link>
-            <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/about">
+            <router-link exact tag="active"  style="text-decoration: none;  padding: 5px;curser:pointer; " to="/about">
                 About
             </router-link>
-            <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/contact">
+            <router-link exact tag="active"  style="text-decoration: none;  padding: 5px; curser:pointer; " to="/contact">
                 Contact
             </router-link>
 
@@ -137,3 +137,12 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.router-link-exact-active {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>

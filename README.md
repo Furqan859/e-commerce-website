@@ -93,6 +93,8 @@ Here Visitors can see the publicly available features such as browse products , 
  <h4>Footer</h4>
  <p>In footer some dummy data</p>
 
+ <p>All the UI design make in vuetify and use vue to make dynamic and for page change use vue-router and data will come from API's link giver from start</p>
+
  <p>An online representation of the products that are sold in the physical store</p>
  <p>There are many categories(e.g;Phones,laptops,cloths,makeup and jewelry etc.) and every product of each categories which online shoppers can browse. Details are provided for each product(ie;name,image,description and price)</p>
 
@@ -155,7 +157,10 @@ Here Visitors can see the publicly available features such as browse products , 
   <li>Search Product</li>
   <li>Cart-icon with length of cart</li>
   <li>Click on Add to Cart the product add in cart</li>
-  <li>On duplicate products stop on if id is available then skip you can add quantity in cart page</li>
+  <li>Count number of products add in cart</li>
+  <li>On duplicate products stop on if id is available then skip. You can add quantity in cart page</li>
+  <li>In detail Page if you can open a detail page click on card image on every card image has detail page link</li>
+  <li>In detail page send params dynamic product id </li>
   <li>You can add product till the stock is available if the quantity is equal to the stock the increment button style is none</li> 
   <p>Every product price and selected quantity are multiply and get a total product price and add discount on total price then add delivery charges and get a Grand Total </p>
 
