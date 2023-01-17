@@ -10,6 +10,20 @@
                     </v-avatar>
                 </router-link>
             </v-row>
+
+            <v-row>
+                <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/">
+                Home
+            </router-link>
+            <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/about">
+                About
+            </router-link>
+            <router-link style="text-decoration: none; color: inherit; padding: 5px;" to="/contact">
+                Contact
+            </router-link>
+
+            </v-row>
+            
             
 
             <v-spacer></v-spacer>
@@ -39,8 +53,11 @@
                 <router-link style="text-decoration: none; color: inherit;" to="/userProfile">
                     <v-btn target="_blank" text>
                         <v-row>
-                            <v-avatar>
+                            <v-avatar v-if="this.$store.state.userAuth==true">
                                 <img :src=image alt="user-img">
+                            </v-avatar>
+                            <v-avatar v-else>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdOFEcpKcal_GdHnYSVXxIqw8k5vr8F_nLsfclzOoWeg&s" alt="user-img">
                             </v-avatar>
                         </v-row>
                         <span>{{ userName }}</span>

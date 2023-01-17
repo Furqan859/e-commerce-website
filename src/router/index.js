@@ -8,6 +8,7 @@ import userProfileView from '../views/userProfileView.vue'
 import CartPage from '../views/CartPage.vue'
 import DetailPage from '@/views/DetailPage.vue'
 import BasketCheckout from '../components/BasketCheckout.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 Vue.use(VueRouter)
 
 
@@ -69,6 +70,11 @@ const routes = [
     path: '/basketCheckout',
     name: 'BasketCheckout',
     component: BasketCheckout
+  },
+  {
+    path: '*',
+    name: 'PageNotFound',
+    component: PageNotFound
   }
 ]
 

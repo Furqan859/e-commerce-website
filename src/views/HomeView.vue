@@ -16,7 +16,7 @@
                 </v-layout>
                 <!-- pagination -->
                 <div class="text-center mb-5">
-                    <v-pagination  v-model="page" :length="4" circle></v-pagination>
+                    <v-pagination  v-model="page" :length="4" circle ></v-pagination>
                 </div>
             </v-container>
         </v-app>
