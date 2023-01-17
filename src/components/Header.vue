@@ -70,7 +70,7 @@
 
         <v-divider></v-divider>
         <!-- sidebar pages -->
-        <div align="center" justify="space-around" class="pa-6">
+        <div align="center" style="margin-left:5px"  justify="space-around" class="pa-6">
             <v-btn to="/" min-width="150" class="my-2">
                 Home
             </v-btn><br>
