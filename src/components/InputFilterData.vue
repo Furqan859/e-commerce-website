@@ -9,8 +9,6 @@
                     <v-expansion-panel-content align="center"
                     v-for="item in $store.state.filterCategory" :key="item.id" :item="item" >
                         <v-btn min-width="193" elevation="5"  @click="filterProduct(item)">{{item}}</v-btn><br>
-                        
-                          
                     </v-expansion-panel-content>
                 </v-expansion-panel>
             </v-expansion-panels>
@@ -65,9 +63,14 @@
 
                 <v-card-actions>
 
+                   <v-layout>
                     <v-btn  @click="AddToCart(filterData.id)" color="deep-purple-lighten-2 " variant="text">
                         Add To Cart
                     </v-btn>
+                    
+                   </v-layout>
+                  
+                  
 
                 </v-card-actions>
             </v-card>
@@ -103,12 +106,15 @@ export default {
         },
         // get id from product and dispatch an action
         AddToCart(id) {
+            if( this.$store.state.userAuth == true){
             this.loading = true
             setTimeout(() => (this.loading = false), 2000)
             console.log(id)
-            this.$store.dispatch('ProductDescription',
-                id
-            )
+            this.$store.dispatch('ProductDescription',id )
+            }else{
+                this.$router.push('/login')
+            }
+            
         },
 
         // this function get a id for detail page

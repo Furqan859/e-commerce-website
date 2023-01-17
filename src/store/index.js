@@ -16,6 +16,7 @@ export default new Vuex.Store({
     selectFilterCategory: [],
     searchData: [],
     detailPage: [],
+    userAuth : JSON.parse(localStorage.getItem('authUser')),
   },
 
   // getters is used to set data in component
@@ -60,7 +61,6 @@ export default new Vuex.Store({
     },
 
     SET_PRODUCT(state, singleProductFetch) {
-    
         state.product.push(singleProductFetch);
       
     }

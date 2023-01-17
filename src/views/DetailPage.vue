@@ -38,14 +38,9 @@
                             </v-card-text>
 
                             <v-card-actions>
-
-                                <v-row>
                                     <v-btn @click="AddToCart(detailPage.id)" :disabled="isActive" color="deep-purple-lighten-2 mx-5 " variant="text">
                                         Add To Cart
                                     </v-btn>
-                                </v-row>
-                                <v-btn depressed  class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="loader = 'loading'">Discount:{{ detailPage.discountPercentage }}%</v-btn>
-
                             </v-card-actions>
                         </v-card>
 
@@ -84,13 +79,15 @@ export default {
     methods: {
         // add product to cart
         AddToCart(id) {
-            if (id == id) {
+            if (id == id && this.$store.state.userAuth == true) {
                 this.isActive = true
-            }
             this.loading = true
             setTimeout(() => (this.loading = false), 2000)
             this.$store.dispatch('ProductDescription', id)
-
+            }
+            else if (id == id && this.$store.state.userAuth == false) {
+                this.$router.push('/login')
+            }
         },
 
     },

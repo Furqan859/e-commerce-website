@@ -20,9 +20,7 @@ const routes = [
     path: '/',
     name: 'homeView',
     component: HomeView,
-    meta: {
-      needsAuth: true
-    }
+   
   },
   // route for login page
   {
@@ -54,7 +52,11 @@ const routes = [
   {
     path: '/cartPage',
     name: 'userCart',
-    component: CartPage
+    component: CartPage,
+     meta: {
+      needsAuth: true
+    }
+   
   },
   // route for detail page
   {

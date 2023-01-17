@@ -61,9 +61,9 @@
                     Contact
                 </v-btn><br>
                 <!-- for add new products -->
-                <v-btn to="/addNewProduct"  min-width="150" class="my-2">
+                <!-- <v-btn to="/addNewProduct"  min-width="150" class="my-2">
                     Add Product
-                </v-btn>
+                </v-btn> -->
                
             </div>
             <InputFilterData />
