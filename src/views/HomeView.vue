@@ -15,7 +15,7 @@
                     <CardData v-for="product in updatePage" :key="product.id" :product="product" />
                 </v-layout>
                 <!-- pagination -->
-                <div class="text-center mb-5">
+                <div class="text-center mb-5" >
                     <v-pagination  v-model="page" :length="4" circle ></v-pagination>
                 </div>
             </v-container>
