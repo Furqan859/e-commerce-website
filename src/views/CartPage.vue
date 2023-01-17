@@ -78,7 +78,7 @@
             </v-row>
             <div>
                 <div>Delivery Charges :$50</div>
-                <div> Grand Total : {{totalPrices}} </div>
+                <div> Grand Total : ${{totalPrices}} </div>
             </div>
         </v-row>
     </v-container>
@@ -120,7 +120,7 @@ export default {
         // calculate total price function
         totalPrices() {
             return this.product.reduce((total, prod) => {
-                return total + prod.price * prod.quantity + 50
+                return Math.round(total + prod.price * prod.quantity / 100 * (100 - prod.discountPercentage))
             }, 0)
         }
 
