@@ -56,21 +56,33 @@ Here Visitors can see the publicly available features such as browse products , 
 
  ### User interface
 
- <h6>Home Page</h6>
- <h6>Header</h6>
+ <h4>Home Page</h4>
+ <h4>Header</h4>
  <p>Header with logo,menu,home,about,contact and if logged in show login and logout options</p>
- <h6>About Us</h6>
+ <h4>About Us</h4>
  <p>This page contains information about website some images include</p>
- <h6>Contact Us</h6>
+ <h4>Contact Us</h4>
  <p>user can Contact on help-line</p>
- <h6>SideBar</h6>
+ <h4>SideBar</h4>
  <p>Home,About,Contact</p>
  <p>Select Brand</p>
  <p>Item Prise</p>
- <h5>Delivery</h5>
+ <h4>Delivery</h4>
  <p>Customer Name</p>
  <p>Customer Complete Address</p>
  <p>Customer Cell Number</p>
+
+ <p>An online representation of the products that are sold in the physical store</p>
+ <p>There are many categories(e.g;Phones,laptops,cloths,makeup and jewelry etc.) and every product of each categories which online shoppers can browse. Details are provided for each product(ie;name,image,description and price)</p>
+
+ ### Shopping Cart Functionally
+ <h5>Shopping Cart Functionally, which includes the ability to:</h5>
+ <p>Add Items to the shopping cart</p>
+ <p>Remove Items from the shopping cart</p>
+ <p>Place a conform order and give a detail address</p>
+ 
+
+
 
  
 
