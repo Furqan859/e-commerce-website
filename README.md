@@ -153,8 +153,19 @@ Here Visitors can see the publicly available features such as browse products , 
   <li>On duplicate products stop on if id is available then skip you can add quantity in cart page</li>
   <li>You can add product till the stock is available if the quantity is equal to the stock the increment button style is none</li> 
   <p>Every product price and selected quantity are multiply and get a total product price and add discount on total price then add delivery charges and get a Grand Total </p>
-  
+
   </ul>
+
+
+  <h3>Home Page</h3>
+  <img src="./src/assets/website-images/website.PNG"/>
+  <h3>About Page</h3>
+  <h3>Contact Page</h3>
+  <h3>User Profile Page</h3>
+  <h3>Cart Page</h3>
+  <h3>Detail Page</h3>
+  <h3>Login Page</h3>
+  <h3>CheckOut Page</h3>
 
 
   
