@@ -27,6 +27,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Click to check website
 See [Website Link](https://e-commerce-website-dfmr-1hj4lqwy8-furqan859.vercel.app/).
+
+### Fake API's Given from Company 
+See [APIS's](https://dummyjson.com/)
   
   ### Introduction
 <p>The Purpose of this document is to define the features of the E-Commerce website.
@@ -57,20 +60,33 @@ Here Visitors can see the publicly available features such as browse products , 
  ### User interface
 
  <h4>Home Page</h4>
+ <p>Show carousel on home page after carousel show all products</p>
  <h4>Header</h4>
  <p>Header with logo,menu,home,about,contact and if logged in show login and logout options</p>
  <h4>About Us</h4>
  <p>This page contains information about website some images include</p>
  <h4>Contact Us</h4>
  <p>user can Contact on help-line</p>
+ <h4>Cart Icon</h4>
+ <p>In Cart Icon your selected products and show number how many products are selected</p>
+ <h4>LoggedIn and Logout Button</h4>
+ <p>if user is login show logout if not show the logout button</p>
  <h4>SideBar</h4>
+ <p>In Side Bar user profile image</p>
  <p>Home,About,Contact</p>
+ <p>And Select Categories Option</p>
+ <h4>Search Product</h4>
+ <p>Filter product through search</p>
  <p>Select Brand</p>
  <p>Item Prise</p>
  <h4>Delivery</h4>
  <p>Customer Name</p>
  <p>Customer Complete Address</p>
  <p>Customer Cell Number</p>
+ <h4>Pagination</h4>
+ <p>Select page</p>
+ <h4>Footer</h4>
+ <p>In footer some dummy data</p>
 
  <p>An online representation of the products that are sold in the physical store</p>
  <p>There are many categories(e.g;Phones,laptops,cloths,makeup and jewelry etc.) and every product of each categories which online shoppers can browse. Details are provided for each product(ie;name,image,description and price)</p>
@@ -123,7 +139,30 @@ Here Visitors can see the publicly available features such as browse products , 
 
   <h4>User Login Information</h4>
 
-  <p>t is necessary for every user to login into their accounts before they more to purchase any product from our website.We want a user email and password in login form for the users</p>
+  <p>This is necessary for every user to login into their accounts before they more to purchase any product from our website.We want a user email and password in login form for the users</p>
+  
+
+  ### Some Functionality added in website
+
+  <ul>
+  <li>use Vue-router to redirect pages</li>
+  <li>Filter Product and select</li>
+  <li>Search Product</li>
+  <li>Cart-icon with length of cart</li>
+  <li>Click on Add to Cart the product add in cart</li>
+  <li>On duplicate products stop on if id is available then skip you can add quantity in cart page</li>
+  <li>You can add product till the stock is available if the quantity is equal to the stock the increment button style is none</li> 
+  <p>Every product price and selected quantity are multiply and get a total product price and add discount on total price then add delivery charges and get a Grand Total </p>
+  
+  </ul>
+
+
+  
+
+
+
+
+
 
 
 
