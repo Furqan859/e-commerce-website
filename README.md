@@ -41,7 +41,36 @@ Here Visitors can see the publicly available features such as browse products , 
 
  ### Price
  <p>
- A fixed price
+ A fixed price on engagement for the development E-commerce website Based on the provided API's
+ <h3>Cost Estimated</h3>
+ <p>Delivery Charges 50$ add on every order</p>
+ <p>price per product and quantity include and subtract the discount are available on product
+ </p>
  </p>
 
+
+ ### The Scenario 
+ <p>A Small Grocery Store, for online business to supply a community with products.</p>
+ <p>The Security and safety of system and customer's information should be highly prioritized. Every Customer mush be register on our online grocery store before they purchase any product. The customer can pay cash on CoD(Cash on Delivery) methods</p>
+
+
+ ### User interface
+
+ <h6>Home Page</h6>
+ <h6>Header</h6>
+ <p>Header with logo,menu,home,about,contact and if logged in show login and logout options</p>
+ <h6>About Us</h6>
+ <p>This page contains information about website some images include</p>
+ <h6>Contact Us</h6>
+ <p>user can Contact on help-line</p>
+ <h6>SideBar</h6>
+ <p>Home,About,Contact</p>
+ <p>Select Brand</p>
+ <p>Item Prise</p>
+ <h5>Delivery</h5>
+ <p>Customer Name</p>
+ <p>Customer Complete Address</p>
+ <p>Customer Cell Number</p>
+
+ 
 
