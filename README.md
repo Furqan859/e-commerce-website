@@ -113,6 +113,19 @@ Here Visitors can see the publicly available features such as browse products , 
 
   <image src="./src/assets/documentation-images/loggedIn.png" alt="not-loggedIn"/>
 
+  <h4>User Registration Requirements</h4>
+
+  <p>Build a Value Around Registration</p>
+  <p>Before user logged In explain the reason for logged In </p>
+
+  <h4>Eliminate as many Fields as possible.</h4>
+  <p>Only get data from user which are most important and remove or make all other field as "Options" which are not necessary about user</p>
+
+  <h4>User Login Information</h4>
+
+  <p>t is necessary for every user to login into their accounts before they more to purchase any product from our website.We want a user email and password in login form for the users</p>
+
+
 
  
 
