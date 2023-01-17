@@ -180,7 +180,7 @@ Here Visitors can see the publicly available features such as browse products , 
 <h3>SideBar</h3>
 <img src="./src/assets/website-Images/sidebar.PNG"/>
 <h3>Filter Categories</h3>
-<img src="./src/assets/website-Images/filter.PNG"/>
+<img src="./src/assets/website-Images/filter.png"/>
 <h3>Search Product</h3>
 <img src="./src/assets/website-Images/search.PNG"/>
 
