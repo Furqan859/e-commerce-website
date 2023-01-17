@@ -80,7 +80,33 @@ Here Visitors can see the publicly available features such as browse products , 
  <p>Add Items to the shopping cart</p>
  <p>Remove Items from the shopping cart</p>
  <p>Place a conform order and give a detail address</p>
- 
+
+  ### Scope of the Project 
+  <p>The objectives of this project proposal is to define the object scope and E-commerce Website and to provide the Estimation. The advantage would be simple user interface that is easy to understand by all of users.</p>
+
+  <h5>Scope</h5>
+  <p>The scoped of the documentation after the project is build</p>
+  <h5>Design Goals</h5>
+  <p>View Home Page & slider show images </p>
+  <p>Browse Products</p>
+  <p>View Products Detail page</p>
+  <p>Became a member through Registration process</p>
+  <p>View Static Pages</p>
+
+  <h4>Register a Member Panel</h4>
+  <p>Login to site</p>
+  <p>Manage Details</p>
+  <p>My Profile</p>
+  <p>Buy Products(CheckOut)</p>
+  <p>LogOut</p>
+
+  ### High Level Requirements
+
+  <h4>System Block Diagram</h4>
+
+  <h4>If User Is Not Logged In</h4>
+
+  <image src="./src/assets/documentation-images/notLoggedIn.png" alt="not-loggedIn"/>
 
 
 
