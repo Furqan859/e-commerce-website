@@ -109,6 +109,10 @@ Here Visitors can see the publicly available features such as browse products , 
   <image src="./src/assets/documentation-images/notLoggedIn.png" alt="not-loggedIn"/>
 
 
+ <h4>If User Is Logged In</h4>
+
+  <image src="./src/assets/documentation-images/loggedIn.png" alt="not-loggedIn"/>
+
 
  
 
