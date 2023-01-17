@@ -61,8 +61,13 @@ export default new Vuex.Store({
     },
 
     SET_PRODUCT(state, singleProductFetch) {
-        state.product.push(singleProductFetch);
+      if(state.product.find((item)=>item.id === singleProductFetch.id)){
+      alert("Product already added in cart")
+      }
       
+      else{
+        state.product.push(singleProductFetch);
+      }
     }
 
   },
@@ -116,6 +121,7 @@ export default new Vuex.Store({
       singleProductFetch.deliveryCharge=5
       commit('SET_PRODUCT', singleProductFetch);
       console.log(singleProductFetch, "singleProductFetch");
+      console.log(this.state.product, "product");
     },
 
 

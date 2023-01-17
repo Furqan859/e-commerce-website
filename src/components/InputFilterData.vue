@@ -106,7 +106,7 @@ export default {
         },
         // get id from product and dispatch an action
         AddToCart(id) {
-            if( this.$store.state.userAuth == true){
+            if(  this.$store.state.userAuth == true ){
             this.loading = true
             setTimeout(() => (this.loading = false), 2000)
             console.log(id)
