@@ -160,6 +160,7 @@ Here Visitors can see the publicly available features such as browse products , 
   <h3>Home Page</h3>
   <img src="./src/assets/website-images/website.png"/>
   <h3>About Page</h3>
+  <img src="./src/assets/website-images/website.PNG">
   <h3>Contact Page</h3>
   <h3>User Profile Page</h3>
   <h3>Cart Page</h3>
